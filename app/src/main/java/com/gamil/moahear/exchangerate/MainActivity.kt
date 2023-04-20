@@ -2,13 +2,13 @@ package com.gamil.moahear.exchangerate
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.gamil.moahear.exchangerate.databinding.ActivityMarketBinding
+import com.gamil.moahear.exchangerate.databinding.ActivityMainBinding
 
-class MarketActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMarketBinding
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMarketBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.apply {
 

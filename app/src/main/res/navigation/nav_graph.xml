@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/marketFragment">
+
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="com.gamil.moahear.exchangerate.MarketFragment"
+        tools:layout="@layout/fragment_market"
+        android:label="MarketFragment" >
+        <action
+            android:id="@+id/action_marketFragment_to_coinFragment"
+            app:destination="@id/coinFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_coin"
+        android:id="@+id/coinFragment"
+        android:name="com.gamil.moahear.exchangerate.CoinFragment"
+        android:label="CoinFragment" />
+</navigation>
