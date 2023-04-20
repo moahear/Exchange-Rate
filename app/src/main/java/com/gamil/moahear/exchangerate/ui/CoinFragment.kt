@@ -1,4 +1,4 @@
-package com.gamil.moahear.exchangerate
+package com.gamil.moahear.exchangerate.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

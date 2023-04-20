@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/marketFragment"
-        android:name="com.gamil.moahear.exchangerate.MarketFragment"
+        android:name="com.gamil.moahear.exchangerate.ui.MarketFragment"
         tools:layout="@layout/fragment_market"
         android:label="MarketFragment" >
         <action
@@ -17,6 +17,6 @@
     <fragment
         tools:layout="@layout/fragment_coin"
         android:id="@+id/coinFragment"
-        android:name="com.gamil.moahear.exchangerate.CoinFragment"
+        android:name="com.gamil.moahear.exchangerate.ui.CoinFragment"
         android:label="CoinFragment" />
 </navigation>
