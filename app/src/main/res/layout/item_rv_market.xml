@@ -14,7 +14,7 @@
 <ImageView
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    android:id="@+id/img"
+    android:id="@+id/img_item"
     android:layout_width="32dp"
     android:layout_height="32dp"
     app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +22,7 @@
     />
     <TextView
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/img"
+        app:layout_constraintStart_toEndOf="@id/img_item"
         android:id="@+id/txt_coin_name"
         android:layout_marginStart="12dp"
         style="@style/CoinBitText.Body1"

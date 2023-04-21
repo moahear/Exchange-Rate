@@ -21,6 +21,7 @@
         android:id="@+id/img_news"
         />
     <TextView
+        android:textColor="@color/primaryTextColor"
         android:maxLines="2"
         android:ellipsize="end"
         android:layout_marginStart="8dp"

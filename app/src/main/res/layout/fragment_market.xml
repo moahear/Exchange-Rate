@@ -10,6 +10,7 @@ tools:context=".MainActivity">
     android:id="@+id/layout_toolbar"
     />
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe_refresh_market"
     app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
