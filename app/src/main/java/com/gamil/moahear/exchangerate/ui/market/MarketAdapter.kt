@@ -11,7 +11,6 @@ import com.gamil.moahear.exchangerate.BuildConfig
 import com.gamil.moahear.exchangerate.R
 import com.gamil.moahear.exchangerate.data.model.CoinsData
 import com.gamil.moahear.exchangerate.databinding.ItemRvMarketBinding
-import java.text.DecimalFormat
 
 class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder>() {
     private val coins = ArrayList<CoinsData.Data>()
@@ -24,8 +23,10 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder>() {
 
                 txtCoinName.text = coin.coinInfo?.fullName
                 txtDollar.text = coin.coinInfo?.name
-                txtPrice.text = "$" + DecimalFormat("0.000000").format(coin.rAW?.uSD?.pRICE).dropLastWhile { it=='0' }.dropLastWhile { it=='.' }
-                txtMarketCap.text ="$" +DecimalFormat("0.00").format((coin.rAW?.uSD?.mKTCAP?.div(1000000000))).dropLastWhile { it=='0' }.dropLastWhile { it=='.' }+" B"
+                //txtPrice.text = "$" + DecimalFormat("0.000000").format(coin.rAW?.uSD?.pRICE).dropLastWhile { it=='0' }.dropLastWhile { it=='.' }
+                txtPrice.text = coin.dISPLAY?.uSD?.pRICE
+                //txtMarketCap.text ="$" +DecimalFormat("0.00").format((coin.rAW?.uSD?.mKTCAP?.div(1000000000))).dropLastWhile { it=='0' }.dropLastWhile { it=='.' }+" B"
+                txtMarketCap.text =coin.dISPLAY?.uSD?.mKTCAP
                 coin.rAW?.uSD?.cHANGE24HOUR?.let {
                     if (it > 0) {
                         txtChange.setTextColor(
@@ -40,7 +41,8 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder>() {
                         )
                     }
                 }
-                txtChange.text=DecimalFormat("0.00").format(coin.rAW?.uSD?.cHANGE24HOUR)
+                //txtChange.text=DecimalFormat("0.00").format(coin.rAW?.uSD?.cHANGE24HOUR)
+                txtChange.text=coin.dISPLAY?.uSD?.cHANGE24HOUR
                 Glide.with(imgItem.context).load(
                     BuildConfig.BASE_URL_IMAGE + (coin.coinInfo?.imageUrl
                         ?: "")

@@ -18,6 +18,7 @@ import com.gamil.moahear.exchangerate.data.model.CoinsData
 import com.gamil.moahear.exchangerate.data.model.NewsData
 import com.gamil.moahear.exchangerate.databinding.FragmentMarketBinding
 import com.gamil.moahear.exchangerate.remote.client.ApiClient
+import com.gamil.moahear.exchangerate.utils.CoinsAbout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,6 +26,9 @@ import retrofit2.Response
 class MarketFragment : Fragment() {
     private val marketAdapter by lazy {
         MarketAdapter()
+    }
+    private val coinsAbout by lazy {
+        CoinsAbout.getCoinsAbout(requireContext())
     }
     private lateinit var binding: FragmentMarketBinding
     private lateinit var randomPair:Pair<String?,String?>
@@ -66,7 +70,12 @@ class MarketFragment : Fragment() {
             }
         }
         marketAdapter.onCoinClick {
-            findNavController().navigate(MarketFragmentDirections.actionMarketFragmentToCoinFragment())
+
+               val currentCoinAbout=coinsAbout.find {coinAbout->
+                   coinAbout.currencyName== it.coinInfo?.name
+               }
+
+            findNavController().navigate(MarketFragmentDirections.actionMarketFragmentToCoinFragment().setBundleCoin(it).setBundleCoinAbout(currentCoinAbout))
         }
     }
 

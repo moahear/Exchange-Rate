@@ -18,5 +18,16 @@
         tools:layout="@layout/fragment_coin"
         android:id="@+id/coinFragment"
         android:name="com.gamil.moahear.exchangerate.ui.CoinFragment"
-        android:label="CoinFragment" />
+        android:label="CoinFragment" >
+        <argument
+            android:name="bundle_coin"
+            app:argType="com.gamil.moahear.exchangerate.data.model.CoinsData$Data"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="bundle_coin_about"
+            app:argType="com.gamil.moahear.exchangerate.data.model.CoinAboutParcelable$CoinAboutParcelableItem"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
 </navigation>

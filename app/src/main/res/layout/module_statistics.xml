@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
@@ -113,7 +112,7 @@
 
         <TextView
 
-            android:id="@+id/txt_volume_amount"
+            android:id="@+id/txt_algorithm_amount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -122,45 +121,45 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/txt_volume"
+            android:id="@+id/txt_algorithm"
             style="@style/CoinBitText.TitleAlternate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Volume"
-            app:layout_constraintStart_toStartOf="@+id/txt_volume_amount"
-            app:layout_constraintTop_toBottomOf="@+id/txt_volume_amount" />
+            android:text="Algorithm"
+            app:layout_constraintStart_toStartOf="@+id/txt_algorithm_amount"
+            app:layout_constraintTop_toBottomOf="@+id/txt_algorithm_amount" />
 
         <TextView
-            android:id="@+id/txt_average_volume_amount"
+            android:id="@+id/txt_total_volume_amount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="27M"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/txt_volume" />
+            app:layout_constraintTop_toBottomOf="@id/txt_algorithm" />
 
         <TextView
-            android:id="@+id/txt_average_volume"
+            android:id="@+id/txt_total_volume"
             style="@style/CoinBitText.TitleAlternate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Average Volume"
-            app:layout_constraintStart_toStartOf="@+id/txt_volume_amount"
-            app:layout_constraintTop_toBottomOf="@id/txt_average_volume_amount" />
+            app:layout_constraintStart_toStartOf="@+id/txt_algorithm_amount"
+            app:layout_constraintTop_toBottomOf="@id/txt_total_volume_amount" />
 
 
         <TextView
-            android:id="@+id/market_cap_amount"
+            android:id="@+id/txt_market_cap_amount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="$866.34B"
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/txt_average_volume" />
+            app:layout_constraintTop_toBottomOf="@id/txt_total_volume" />
 
         <TextView
             android:id="@+id/market_cap"
@@ -169,12 +168,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Market Cap"
-            app:layout_constraintStart_toStartOf="@+id/txt_volume_amount"
-            app:layout_constraintTop_toBottomOf="@id/market_cap_amount" />
+            app:layout_constraintStart_toStartOf="@+id/txt_algorithm_amount"
+            app:layout_constraintTop_toBottomOf="@id/txt_market_cap_amount" />
 
 
         <TextView
-            android:id="@+id/supply_amount"
+            android:id="@+id/txt_supply_amount"
             style="@style/CoinBitText.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,7 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Supply"
-            app:layout_constraintStart_toStartOf="@+id/txt_volume_amount"
-            app:layout_constraintTop_toBottomOf="@id/supply_amount" />
+            app:layout_constraintStart_toStartOf="@+id/txt_algorithm_amount"
+            app:layout_constraintTop_toBottomOf="@id/txt_supply_amount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

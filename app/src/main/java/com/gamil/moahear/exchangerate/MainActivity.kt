@@ -12,6 +12,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.apply {
 
+             //StringOfJsonFile.getString(this@MainActivity)
+
+           /* Log.i("TAGFF", "onCreate: ${applicationContext.assets.open("currencyinfo.json").bufferedReader().use {br->
+                br.readText()
+            }}")*/
         }
     }
 }
