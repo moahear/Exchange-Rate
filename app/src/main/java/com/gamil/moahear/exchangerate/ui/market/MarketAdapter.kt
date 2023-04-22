@@ -20,7 +20,6 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.MarketViewHolder>() {
         @SuppressLint("SetTextI18n")
         fun bindCoin(coin: CoinsData.Data) {
             binding.apply {
-
                 txtCoinName.text = coin.coinInfo?.fullName
                 txtDollar.text = coin.coinInfo?.name
                 //txtPrice.text = "$" + DecimalFormat("0.000000").format(coin.rAW?.uSD?.pRICE).dropLastWhile { it=='0' }.dropLastWhile { it=='.' }

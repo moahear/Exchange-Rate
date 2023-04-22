@@ -31,7 +31,7 @@ class MarketFragment : Fragment() {
         CoinsAbout.getCoinsAbout(requireContext())
     }
     private lateinit var binding: FragmentMarketBinding
-    private lateinit var randomPair:Pair<String?,String?>
+    private lateinit var randomPair: Pair<String?, String?>
     val dataToSend: ArrayList<Pair<String?, String?>> = arrayListOf()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,40 +45,57 @@ class MarketFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+            //region Set title of toolbar
             layoutToolbar.toolbar.title = "Exchange Rate"
+            //endregion
+            //region Load data of news and top coins
             loadData()
+            //endregion
+            //region Get news randomly
             layoutNews.root.setOnClickListener {
-                randomPair=dataToSend.random()
+                randomPair = dataToSend.random()
                 layoutNews.txtNews.text = randomPair.first
             }
+            //endregion
+            //region Read current news in internet browser
             layoutNews.imgNews.setOnClickListener {
-                Intent(Intent.ACTION_VIEW,randomPair.second?.toUri()).apply {
+                Intent(Intent.ACTION_VIEW, randomPair.second?.toUri()).apply {
                     startActivity(this)
                 }
             }
+            //endregion
+
+            //region Read  more newses in internet browser
             layoutShowList.btnShowMore.setOnClickListener {
-                Intent(Intent.ACTION_VIEW,"https://www.livecoinwatch.com/".toUri()).apply {
+                Intent(Intent.ACTION_VIEW, "https://www.livecoinwatch.com/".toUri()).apply {
                     startActivity(this)
                 }
             }
+            //endregion
+            //region Refresh Market data
             swipeRefreshMarket.setOnRefreshListener {
                 Handler(Looper.getMainLooper()).postDelayed({
                     loadData()
-                    swipeRefreshMarket.isRefreshing=false
-                },1000)
-
+                    swipeRefreshMarket.isRefreshing = false
+                }, 1000)
             }
+            //endregion
         }
+        //region Send data to  coin fragment with navigation component
         marketAdapter.onCoinClick {
+            val currentCoinAbout = coinsAbout.find { coinAbout ->
+                coinAbout.currencyName == it.coinInfo?.name
+            }
 
-               val currentCoinAbout=coinsAbout.find {coinAbout->
-                   coinAbout.currencyName== it.coinInfo?.name
-               }
-
-            findNavController().navigate(MarketFragmentDirections.actionMarketFragmentToCoinFragment().setBundleCoin(it).setBundleCoinAbout(currentCoinAbout))
+            findNavController().navigate(
+                MarketFragmentDirections.actionMarketFragmentToCoinFragment().setBundleCoin(it)
+                    .setBundleCoinAbout(currentCoinAbout)
+            )
         }
+        //endregion
     }
 
+    //region Load data function
     private fun FragmentMarketBinding.loadData() {
         ApiClient.apiService.getNews("popular").enqueue(object : Callback<NewsData> {
             override fun onResponse(call: Call<NewsData>, response: Response<NewsData>) {
@@ -119,4 +136,5 @@ class MarketFragment : Fragment() {
 
         })
     }
+    //endregion
 }

@@ -8,26 +8,26 @@
     <fragment
         android:id="@+id/marketFragment"
         android:name="com.gamil.moahear.exchangerate.ui.market.MarketFragment"
-        tools:layout="@layout/fragment_market"
-        android:label="MarketFragment" >
+        android:label="MarketFragment"
+        tools:layout="@layout/fragment_market">
         <action
             android:id="@+id/action_marketFragment_to_coinFragment"
             app:destination="@id/coinFragment" />
     </fragment>
     <fragment
-        tools:layout="@layout/fragment_coin"
         android:id="@+id/coinFragment"
-        android:name="com.gamil.moahear.exchangerate.ui.CoinFragment"
-        android:label="CoinFragment" >
+        android:name="com.gamil.moahear.exchangerate.ui.coin.CoinFragment"
+        android:label="CoinFragment"
+        tools:layout="@layout/fragment_coin">
         <argument
             android:name="bundle_coin"
+            android:defaultValue="@null"
             app:argType="com.gamil.moahear.exchangerate.data.model.CoinsData$Data"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
         <argument
             android:name="bundle_coin_about"
+            android:defaultValue="@null"
             app:argType="com.gamil.moahear.exchangerate.data.model.CoinAboutParcelable$CoinAboutParcelableItem"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:nullable="true" />
     </fragment>
 </navigation>

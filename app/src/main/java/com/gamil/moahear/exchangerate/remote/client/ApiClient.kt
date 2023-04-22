@@ -10,7 +10,11 @@ import java.util.concurrent.TimeUnit
 object ApiClient {
     val apiService by lazy {
         Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
-            .client(OkHttpClient.Builder().connectTimeout(60L, TimeUnit.SECONDS).writeTimeout(60L, TimeUnit.SECONDS).readTimeout(60L, TimeUnit.SECONDS).readTimeout(60L, TimeUnit.SECONDS).build())
+            .client(
+                OkHttpClient.Builder().connectTimeout(60L, TimeUnit.SECONDS)
+                    .writeTimeout(60L, TimeUnit.SECONDS).readTimeout(60L, TimeUnit.SECONDS)
+                    .readTimeout(60L, TimeUnit.SECONDS).build()
+            )
             .addConverterFactory(GsonConverterFactory.create())
             .build().create(IApiService::class.java)
     }
